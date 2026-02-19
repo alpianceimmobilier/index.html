@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpiance Immobilier — Investissement Patrimonial Frontalier</title>
+<title>Alpiance Immobilier — Investissement Patrimonial & Rentable</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,921 +13,428 @@
     --blue-mid: #2e5090;
     --blue-steel: #6b8fb5;
     --gold: #b8952a;
-    --gold-light: #c9a23d;
-    --gold-pale: #d4af5a;
-    --cream: #f7f4ef;
-    --cream-dark: #ede9e1;
-    --cream-border: #e0dbd1;
-    --text-dark: #0d1f3c;
-    --text-mid: #2e4060;
-    --text-light: #6b7a8d;
+    --gold-light: #d4af5a;
+    --gold-pale: #e8d08a;
+    --white: #f5f3ee;
     --white-pure: #ffffff;
-    --border: rgba(184,149,42,0.3);
-    --border-light: rgba(13,31,60,0.1);
+    --gray: #8a9ab5;
+    --border: rgba(184,149,42,0.25);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Barlow', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
+    background: var(--navy);
+    color: var(--white);
     overflow-x: hidden;
   }
 
-  /* ───── NOISE TEXTURE OVERLAY ───── */
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.5;
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 999; opacity: 0.4;
   }
 
-  /* ───── NAV ───── */
+  /* ── NAV ── */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 1.4rem 4rem;
-    background: rgba(247,244,239,0.92);
+    background: rgba(13,31,60,0.88);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--cream-border);
+    border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
   }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    text-decoration: none;
-  }
-
-  .nav-logo img {
-    height: 48px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
+  .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+  .nav-logo img { height: 48px; filter: brightness(1.1); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
+    color: var(--gray); text-decoration: none;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
     transition: color 0.3s;
   }
-
-  .nav-links a:hover { color: var(--gold); }
-
+  .nav-links a:hover { color: var(--gold-light); }
   .nav-cta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--navy) !important;
-    border: 1px solid rgba(13,31,60,0.3);
-    padding: 0.6rem 1.4rem;
+    color: var(--gold) !important;
+    border: 1px solid var(--border); padding: 0.6rem 1.4rem;
     transition: all 0.3s !important;
   }
-  .nav-cta:hover { background: var(--navy) !important; color: var(--cream) !important; border-color: var(--navy) !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
 
-  /* ───── HERO ───── */
+  /* ── HERO ── */
   #accueil {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    position: relative; height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
     overflow: hidden;
   }
-
   .hero-bg {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image: url('/mnt/user-data/uploads/Untitled_Project__5_.png');
-    background-size: cover;
-    background-position: center;
+    background-size: cover; background-position: center;
     transform: scale(1.05);
     animation: heroScale 20s ease-in-out infinite alternate;
   }
-
   @keyframes heroScale {
     from { transform: scale(1.05); }
     to { transform: scale(1.12); }
   }
-
   .hero-overlay {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(13,31,60,0.25) 0%,
-      rgba(13,31,60,0.05) 35%,
-      rgba(247,244,239,0.75) 75%,
-      var(--cream) 100%
+      rgba(13,31,60,0.3) 0%,
+      rgba(13,31,60,0.1) 40%,
+      rgba(13,31,60,0.88) 80%,
+      var(--navy) 100%
     );
   }
-
   .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 4rem 7rem;
-    max-width: 900px;
+    position: relative; z-index: 2;
+    padding: 0 4rem 7rem; max-width: 900px;
   }
-
   .hero-eyebrow {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.3s forwards;
+    font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
   }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-  }
-
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--navy);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
+    font-size: clamp(3rem, 6vw, 6rem); font-weight: 300; line-height: 1.05;
+    color: var(--white-pure); margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
   }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
+  .hero-title em { font-style: italic; color: var(--gold-pale); }
   .hero-sub {
-    font-size: 1rem;
-    font-weight: 300;
-    color: rgba(13,31,60,0.7);
-    max-width: 520px;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
+    font-size: 1rem; font-weight: 300; color: rgba(245,243,238,0.72);
+    max-width: 540px; line-height: 1.8; margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
   }
-
   .hero-actions {
-    display: flex;
-    gap: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
+    display: flex; gap: 1.2rem;
+    opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
   }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ───── BUTTONS ───── */
+  /* ── BUTTONS ── */
   .btn-primary {
-    display: inline-block;
-    padding: 0.9rem 2.2rem;
-    background: var(--gold);
-    color: var(--navy);
+    display: inline-block; padding: 0.9rem 2.2rem;
+    background: var(--gold); color: var(--navy);
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; font-weight: 600; transition: all 0.3s;
   }
-
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
   .btn-outline {
-    display: inline-block;
-    padding: 0.9rem 2.2rem;
-    border: 1px solid rgba(13,31,60,0.35);
-    color: var(--navy);
+    display: inline-block; padding: 0.9rem 2.2rem;
+    border: 1px solid rgba(245,243,238,0.4); color: var(--white);
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
   }
-
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* ───── SECTIONS ───── */
-  section {
-    padding: 7rem 4rem;
-  }
-
-  .section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-eyebrow {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
   }
-
-  .section-eyebrow::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
+  .section-eyebrow::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: var(--navy);
+    font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.1;
+    margin-bottom: 1.5rem; color: var(--white-pure);
   }
-
-  .section-title em { font-style: italic; color: var(--gold); }
-
+  .section-title em { font-style: italic; color: var(--gold-pale); }
   .section-lead {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text-light);
-    max-width: 580px;
-    line-height: 1.9;
+    font-size: 1rem; font-weight: 300; color: rgba(245,243,238,0.65);
+    max-width: 580px; line-height: 1.9;
   }
+  .divider { width: 60px; height: 1px; background: var(--gold); margin: 2rem 0; }
 
-  .divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 2rem 0;
-  }
-
-  /* ───── CHIFFRES CLÉS ───── */
+  /* ── CHIFFRES ── */
   #chiffres {
     padding: 4rem;
-    background: var(--navy);
-    border-top: 1px solid rgba(13,31,60,0.15);
-    border-bottom: none;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
-
   .chiffres-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
   }
-
-  .chiffre-item {
-    padding: 2rem 3rem;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-  }
-
+  .chiffre-item { padding: 2rem 3rem; border-right: 1px solid var(--border); text-align: center; }
   .chiffre-item:last-child { border-right: none; }
-
   .chiffre-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: var(--gold-pale);
-    line-height: 1;
-    margin-bottom: 0.5rem;
+    font-size: 3.5rem; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 0.5rem;
   }
-
   .chiffre-label {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray);
   }
 
-  /* ───── STRATÉGIE ───── */
-  #strategie {
-    background: var(--cream);
+  /* ── DUAL PILLAR BANNER ── */
+  #dual-pillar {
+    padding: 5rem 4rem;
+    background: rgba(26,50,96,0.35);
+    border-bottom: 1px solid var(--border);
   }
-
-  .strategie-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
+  .dual-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 4rem; align-items: center;
   }
-
-  .strategie-right {
-    padding-top: 3rem;
+  .dual-col { text-align: center; padding: 1.5rem 2rem; }
+  .dual-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem; font-weight: 300; color: var(--white-pure); margin-bottom: 0.5rem;
   }
+  .dual-label em { font-style: italic; color: var(--gold-pale); }
+  .dual-bar { width: 40px; height: 1px; background: var(--gold); margin: 0.8rem auto 1.2rem; }
+  .dual-text {
+    font-size: 0.9rem; font-weight: 300; color: rgba(245,243,238,0.55); line-height: 1.85;
+    max-width: 300px; margin: 0 auto;
+  }
+  .dual-sep { width: 1px; height: 120px; background: var(--border); }
 
+  /* ── STRATÉGIE ── */
+  #strategie { background: var(--navy); }
+  .strategie-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .strategie-right { padding-top: 3rem; }
   .pilier {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--cream-border);
-    align-items: flex-start;
+    display: flex; gap: 1.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06); align-items: flex-start;
   }
-
   .pilier:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
   .pilier-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    min-width: 40px;
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300;
+    color: var(--gold); line-height: 1; min-width: 40px;
   }
-
   .pilier-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.4rem;
   }
+  .pilier-text { font-size: 0.9rem; font-weight: 300; color: rgba(245,243,238,0.6); line-height: 1.8; }
 
-  .pilier-text {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.8;
-  }
-
-  /* ───── ZONE GÉOGRAPHIQUE ───── */
   .zone-card {
-    background: var(--navy);
-    border: none;
-    padding: 2.5rem;
-    margin-top: 3rem;
+    background: linear-gradient(135deg, rgba(46,80,144,0.3), rgba(13,31,60,0.5));
+    border: 1px solid var(--border); padding: 2.5rem; margin-top: 3rem;
   }
-
   .zone-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-pale);
-    margin-bottom: 1.5rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
   }
-
-  .zone-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
+  .zone-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .zone-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 0.4rem 1rem;
-    background: rgba(255,255,255,0.05);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+    border: 1px solid rgba(184,149,42,0.35); padding: 0.4rem 1rem; background: rgba(184,149,42,0.08);
   }
 
-  /* ───── PROJETS ───── */
-  #projets {
-    background: var(--cream-dark);
-  }
-
+  /* ── PROJETS ── */
+  #projets { background: linear-gradient(180deg, var(--navy) 0%, rgba(26,50,96,0.3) 100%); }
   .projet-fondateur {
-    border: 1px solid var(--cream-border);
-    background: var(--white-pure);
-    padding: 3.5rem;
-    position: relative;
-    overflow: hidden;
-    margin-top: 4rem;
-    box-shadow: 0 4px 40px rgba(13,31,60,0.06);
-  }
-
-  .projet-fondateur::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--gold), var(--gold-pale));
-  }
-
-  .projet-badge {
-    display: inline-block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white-pure);
-    background: var(--navy);
-    padding: 0.3rem 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .projet-fondateur h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-
-  .projet-meta {
-    display: flex;
-    gap: 3rem;
-    margin: 1.5rem 0 2rem;
-  }
-
-  .meta-item .meta-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.3rem;
-  }
-
-  .meta-item .meta-val {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.9rem;
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .projet-desc {
-    font-size: 0.92rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.9;
-    max-width: 720px;
-  }
-
-  .projet-standards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--cream-border);
-    margin-top: 2.5rem;
-  }
-
-  .standard-item {
-    background: var(--cream);
-    padding: 1.2rem 1.5rem;
-    text-align: center;
-  }
-
-  .standard-item .si-icon {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .standard-item .si-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-  }
-
-  .futurs-projets {
-    margin-top: 4rem;
-    padding: 2.5rem 3rem;
-    border: 1px dashed var(--cream-border);
-    text-align: center;
-    background: var(--white-pure);
-  }
-
-  .futurs-projets h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-  }
-
-  .futurs-projets p {
-    font-size: 0.88rem;
-    font-weight: 300;
-    color: var(--text-light);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-
-  /* ───── ÉQUIPE ───── */
-  #equipe {
-    background: var(--cream);
-  }
-
-  .equipe-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .membre {
-    border: 1px solid var(--cream-border);
-    padding: 2.5rem 2rem;
-    position: relative;
-    background: var(--white-pure);
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 20px rgba(13,31,60,0.04);
-  }
-
-  .membre:hover { border-color: var(--gold); box-shadow: 0 4px 30px rgba(13,31,60,0.08); }
-
-  .membre-top {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .membre-avatar {
-    width: 56px;
-    height: 56px;
     border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    color: var(--gold-pale);
-    font-weight: 400;
+    background: linear-gradient(135deg, rgba(26,50,96,0.6) 0%, rgba(13,31,60,0.8) 100%);
+    padding: 3.5rem; position: relative; overflow: hidden; margin-top: 4rem;
+  }
+  .projet-fondateur::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+  }
+  .projet-badge {
+    display: inline-block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--navy); background: var(--gold); padding: 0.3rem 0.8rem; margin-bottom: 1.5rem;
+  }
+  .projet-fondateur h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400;
+    color: var(--white-pure); margin-bottom: 1rem;
+  }
+  .projet-meta { display: flex; gap: 3rem; margin: 1.5rem 0 2rem; flex-wrap: wrap; }
+  .meta-item .meta-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.3rem;
+  }
+  .meta-item .meta-val {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; color: var(--gold-light); font-weight: 500;
+  }
+  .projet-desc {
+    font-size: 0.92rem; font-weight: 300; color: rgba(245,243,238,0.65); line-height: 1.9; max-width: 720px;
+  }
+  .projet-standards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border); margin-top: 2.5rem;
+  }
+  .standard-item { background: rgba(13,31,60,0.95); padding: 1.2rem 1.5rem; text-align: center; }
+  .standard-item .si-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .standard-item .si-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray);
+  }
+  .futurs-projets {
+    margin-top: 4rem; padding: 2.5rem 3rem;
+    border: 1px dashed rgba(184,149,42,0.2); text-align: center;
+  }
+  .futurs-projets h4 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300;
+    color: var(--white); margin-bottom: 0.6rem;
+  }
+  .futurs-projets p {
+    font-size: 0.88rem; font-weight: 300; color: rgba(245,243,238,0.5);
+    max-width: 480px; margin: 0 auto; line-height: 1.8;
   }
 
+  /* ── ÉQUIPE ── */
+  #equipe { background: linear-gradient(135deg, rgba(26,50,96,0.25) 0%, var(--navy) 100%); }
+  .equipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+  .membre {
+    border: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 2rem;
+    background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;
+  }
+  .membre:hover { border-color: var(--border); background: rgba(255,255,255,0.04); }
+  .membre-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+  .membre-avatar {
+    width: 56px; height: 56px; border: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--navy-light), var(--blue-mid));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-light); font-weight: 400;
+  }
   .membre-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.2;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500;
+    color: var(--white-pure); line-height: 1.2;
   }
-
   .membre-role {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 0.2rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 0.2rem;
   }
-
   .membre-pole {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 1rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-steel); margin-bottom: 1rem;
   }
-
-  .membre-desc {
-    font-size: 0.88rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.9;
-  }
-
-  .membre-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 1.5rem;
-  }
-
+  .membre-desc { font-size: 0.88rem; font-weight: 300; color: rgba(245,243,238,0.55); line-height: 1.9; }
+  .membre-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
   .membre-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy);
-    border: 1px solid var(--cream-border);
-    padding: 0.2rem 0.6rem;
-    background: var(--cream);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold);
+    border: 1px solid rgba(184,149,42,0.25); padding: 0.2rem 0.6rem;
   }
 
-  /* ───── VISION ───── */
+  /* ── VISION ── */
   #vision {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, rgba(26,50,96,0.4) 0%, var(--navy) 100%);
+    position: relative; overflow: hidden;
   }
-
-  #vision .section-eyebrow { color: var(--gold-pale); }
-  #vision .section-eyebrow::after { background: var(--gold-pale); }
-  #vision .section-title { color: #fff; }
-  #vision .section-title em { color: var(--gold-pale); }
-  #vision .section-lead { color: rgba(255,255,255,0.55); }
-  #vision .divider { background: var(--gold-pale); }
-
   #vision::before {
-    content: '"';
-    position: absolute;
-    top: -2rem;
-    right: 3rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30rem;
-    color: rgba(255,255,255,0.03);
-    line-height: 1;
-    pointer-events: none;
+    content: '"'; position: absolute; top: -2rem; right: 3rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 30rem;
+    color: rgba(184,149,42,0.04); line-height: 1; pointer-events: none;
   }
-
-  .vision-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .engagement-list {
-    margin-top: 3rem;
-  }
-
+  .vision-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: start; }
+  .engagement-list { margin-top: 3rem; }
   .engagement {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    align-items: flex-start;
+    display: flex; gap: 1.5rem; padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05); align-items: flex-start;
   }
-
   .engagement:last-child { border-bottom: none; }
-
   .engagement-icon {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(184,149,42,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold-pale);
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+    width: 32px; height: 32px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;
   }
-
   .engagement-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 0.3rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); margin-bottom: 0.3rem;
   }
-
-  .engagement-text {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.8;
-  }
-
+  .engagement-text { font-size: 0.85rem; font-weight: 300; color: rgba(245,243,238,0.5); line-height: 1.8; }
   .vision-quote {
-    padding: 3rem;
-    border: 1px solid rgba(184,149,42,0.25);
-    background: rgba(184,149,42,0.05);
-    position: sticky;
-    top: 120px;
+    padding: 3rem; border: 1px solid var(--border);
+    background: rgba(184,149,42,0.05); position: sticky; top: 120px;
   }
-
   .vision-quote blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+    font-weight: 300; font-style: italic; color: var(--white-pure); line-height: 1.5; margin-bottom: 1.5rem;
   }
-
   .vision-quote cite {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-pale);
-    font-style: normal;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-style: normal;
   }
-
-  .axes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    margin-top: 3rem;
-  }
-
-  .axe-item {
-    background: rgba(13,31,60,0.95);
-    padding: 1.8rem;
-  }
-
+  .axes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 3rem; }
+  .axe-item { background: rgba(13,31,60,0.95); padding: 1.8rem; }
   .axe-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-pale);
-    margin-bottom: 0.6rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.6rem;
   }
+  .axe-text { font-size: 0.85rem; font-weight: 300; color: rgba(245,243,238,0.5); line-height: 1.8; }
 
-  .axe-text {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.8;
-  }
-
-  /* ───── CONTACT ───── */
-  #contact {
-    background: var(--cream-dark);
-    border-top: 1px solid var(--cream-border);
-  }
-
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .contact-info {
-    margin-top: 2rem;
-  }
-
+  /* ── CONTACT ── */
+  #contact { background: var(--navy-light); border-top: 1px solid var(--border); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-info { margin-top: 2rem; }
   .contact-item {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--cream-border);
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
   }
-
   .contact-item:last-child { border-bottom: none; }
-
   .ci-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.3rem;
-    min-width: 100px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray);
+    margin-bottom: 0.3rem; min-width: 100px;
   }
-
-  .ci-val {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--text-dark);
-  }
-
-  /* ───── FORM ───── */
-  .contact-form {
-    background: var(--white-pure);
-    border: 1px solid var(--cream-border);
-    padding: 2.5rem;
-    box-shadow: 0 4px 40px rgba(13,31,60,0.06);
-  }
-
+  .ci-val { font-size: 0.9rem; font-weight: 300; color: var(--white); }
+  .contact-form { background: rgba(13,31,60,0.6); border: 1px solid var(--border); padding: 2.5rem; }
   .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+    font-weight: 400; color: var(--white-pure); margin-bottom: 1.5rem;
   }
-
-  .form-group {
-    margin-bottom: 1.2rem;
-  }
-
+  .form-group { margin-bottom: 1.2rem; }
   .form-group label {
-    display: block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
+    display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem;
   }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    background: var(--cream);
-    border: 1px solid var(--cream-border);
-    color: var(--text-dark);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 300;
-    padding: 0.8rem 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-    resize: vertical;
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300;
+    padding: 0.8rem 1rem; outline: none; transition: border-color 0.3s; resize: vertical;
   }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--navy); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--gold);
-  }
+  /* ── FOOTER ── */
+  footer { background: rgba(5,12,25,0.98); border-top: 1px solid var(--border); padding: 3rem 4rem; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 40px; filter: brightness(0.85); }
+  .footer-info { text-align: center; font-size: 0.78rem; font-weight: 300; color: rgba(138,154,181,0.5); line-height: 1.9; }
+  .footer-legal { text-align: right; font-size: 0.72rem; font-weight: 300; color: rgba(138,154,181,0.35); line-height: 1.9; }
 
-  .form-group select option { background: var(--cream); color: var(--text-dark); }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  /* ───── FOOTER ───── */
-  footer {
-    background: var(--navy);
-    border-top: none;
-    padding: 3rem 4rem;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-logo img {
-    height: 40px;
-  }
-
-  .footer-info {
-    text-align: center;
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.9;
-  }
-
-  .footer-legal {
-    text-align: right;
-    font-size: 0.72rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.25);
-    line-height: 1.9;
-  }
-
-  /* ───── SCROLLBAR ───── */
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-track { background: var(--navy); }
   ::-webkit-scrollbar-thumb { background: var(--gold); }
 
-  /* ───── RESPONSIVE ───── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     section { padding: 5rem 1.5rem; }
-    #chiffres { padding: 3rem 1.5rem; }
-    .chiffres-grid { grid-template-columns: 2fr 2fr; }
+    #chiffres, #dual-pillar { padding: 3rem 1.5rem; }
+    .chiffres-grid { grid-template-columns: 1fr 1fr; }
     .chiffre-item:nth-child(2) { border-right: none; }
+    .dual-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .dual-sep { display: none; }
     .strategie-layout, .vision-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
     .equipe-grid { grid-template-columns: 1fr; }
     .projet-standards { grid-template-columns: 1fr; }
@@ -993,19 +500,19 @@
   </div>
 </div>
 
-<!-- POSITIONNEMENT DUAL -->
-<div style="background: var(--cream-dark); border-top: 1px solid var(--cream-border); border-bottom: 1px solid var(--cream-border); padding: 3.5rem 4rem;">
-  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: center;">
-    <div style="text-align: center; padding: 2rem;">
-      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.5rem;">Rentabilité</div>
-      <div style="width: 40px; height: 2px; background: var(--gold); margin: 0.6rem auto 1rem;"></div>
-      <p style="font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--text-light); line-height: 1.8; max-width: 280px; margin: 0 auto;">Rendements locatifs bruts élevés dès l'acquisition, grâce à notre stratégie d'achat sous valeur marché et de rénovation ciblée.</p>
+<!-- DUAL PILLAR -->
+<div id="dual-pillar">
+  <div class="dual-inner">
+    <div class="dual-col">
+      <div class="dual-label"><em>Rentabilité</em></div>
+      <div class="dual-bar"></div>
+      <p class="dual-text">Rendements locatifs bruts élevés dès l'acquisition, grâce à notre stratégie d'achat sous valeur marché, de rénovation ciblée et de location meublée premium ciblant les frontaliers genevois.</p>
     </div>
-    <div style="width: 1px; height: 120px; background: var(--cream-border);"></div>
-    <div style="text-align: center; padding: 2rem;">
-      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.5rem;">Patrimoine</div>
-      <div style="width: 40px; height: 2px; background: var(--gold); margin: 0.6rem auto 1rem;"></div>
-      <p style="font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--text-light); line-height: 1.8; max-width: 280px; margin: 0 auto;">Constitution d'un portefeuille immobilier solide et valorisable sur le long terme, optimisé fiscalement via la SCI à l'IS.</p>
+    <div class="dual-sep"></div>
+    <div class="dual-col">
+      <div class="dual-label"><em>Patrimoine</em></div>
+      <div class="dual-bar"></div>
+      <p class="dual-text">Constitution d'un portefeuille immobilier solide, valorisable et optimisé fiscalement via la SCI à l'IS. Chaque actif est pensé pour s'apprécier et générer durablement sur 99 ans.</p>
     </div>
   </div>
 </div>
@@ -1034,7 +541,7 @@
         </div>
 
         <br>
-        <p class="section-lead" style="margin-top: 0;">Notre terrain de jeu : le corridor frontalier Haute-Savoie / Genève. Une zone à demande locative structurellement soutenue par les travailleurs frontaliers — profils stables, solvables — qui nous permet de combiner rendements bruts attractifs et revalorisation patrimoniale à long terme.</p>
+        <p class="section-lead" style="margin-top:0;">Notre terrain de jeu : le corridor frontalier Haute-Savoie / Genève. Une zone à demande locative structurellement soutenue par les travailleurs frontaliers — profils stables, solvables — qui nous permet de combiner rendements bruts attractifs et revalorisation patrimoniale à long terme.</p>
       </div>
 
       <div class="strategie-right">
@@ -1042,35 +549,35 @@
           <div class="pilier-num">01</div>
           <div>
             <div class="pilier-title">Acquisition sous valeur marché</div>
-            <p class="pilier-text">Nous ciblons des biens présentant un décote significative par rapport au marché local — logements nécessitant une rénovation, successions, ventes rapides — afin de sécuriser une marge dès l'achat.</p>
+            <p class="pilier-text">Nous ciblons des biens présentant une décote significative — logements nécessitant rénovation, successions, ventes rapides — afin de sécuriser une marge dès l'achat et maximiser le rendement futur.</p>
           </div>
         </div>
         <div class="pilier">
           <div class="pilier-num">02</div>
           <div>
             <div class="pilier-title">Rénovation à forte valeur ajoutée</div>
-            <p class="pilier-text">Chaque bien est intégralement rénové selon un cahier des charges précis : isolation, électricité, plomberie, cloisonnement. L'objectif est d'atteindre un standard locatif premium qui justifie un loyer supérieur au marché.</p>
+            <p class="pilier-text">Chaque bien est intégralement rénové selon un cahier des charges précis : isolation, électricité, plomberie, cloisonnement. L'objectif est d'atteindre un standard premium qui justifie un loyer supérieur au marché local.</p>
           </div>
         </div>
         <div class="pilier">
           <div class="pilier-num">03</div>
           <div>
             <div class="pilier-title">Ameublement et optimisation des espaces</div>
-            <p class="pilier-text">L'aménagement intérieur est pensé pour optimiser chaque mètre carré, maximiser le confort et créer une expérience locataire différenciante, propice à des locations stables et durables.</p>
+            <p class="pilier-text">L'aménagement est pensé pour optimiser chaque mètre carré, maximiser le confort et créer une expérience locataire différenciante, propice à des locations stables et durables.</p>
           </div>
         </div>
         <div class="pilier">
           <div class="pilier-num">04</div>
           <div>
             <div class="pilier-title">Location meublée longue durée</div>
-            <p class="pilier-text">Notre modèle repose sur la location meublée longue durée, ciblant en priorité les travailleurs frontaliers. Profils stables, solvabilité élevée, rotation faible : un profil locataire idéal pour la performance patrimoniale.</p>
+            <p class="pilier-text">Notre modèle cible les travailleurs frontaliers genevois. Profils stables, solvabilité élevée, rotation faible : le profil locataire idéal pour combiner rendement élevé et sécurité patrimoniale.</p>
           </div>
         </div>
         <div class="pilier">
           <div class="pilier-num">05</div>
           <div>
             <div class="pilier-title">Optimisation fiscale via SCI à l'IS</div>
-            <p class="pilier-text">La structure SCI à l'Impôt sur les Sociétés nous permet d'amortir les biens, de déduire les charges, et d'optimiser la fiscalité sur les bénéfices — en cohérence avec une stratégie de capitalisation long terme.</p>
+            <p class="pilier-text">La structure SCI à l'IS permet d'amortir les biens, de déduire les charges, et d'optimiser la fiscalité sur les bénéfices — en cohérence avec une stratégie de capitalisation long terme.</p>
           </div>
         </div>
       </div>
@@ -1089,7 +596,6 @@
     <div class="projet-fondateur">
       <div class="projet-badge">Projet Fondateur — 2025</div>
       <h3>T2 — Nangy, Haute-Savoie</h3>
-
       <div class="projet-meta">
         <div class="meta-item">
           <div class="meta-label">Type</div>
@@ -1108,9 +614,7 @@
           <div class="meta-val">Frontalier Genève</div>
         </div>
       </div>
-
       <p class="projet-desc">Ce T2 situé à Nangy constitue le premier actif du portefeuille Alpiance Immobilier. Acquis sous la valeur marché, intégralement rénové et meublé selon nos standards premium, il est aujourd'hui mis en location longue durée. Ce bien incarne notre modèle opérationnel dans sa globalité : identification d'une opportunité ciblée, pilotage des travaux en direct, aménagement optimisé, et mise en location auprès d'un profil frontalier stable. Il sert désormais de référence et de standard qualité pour tous nos projets à venir.</p>
-
       <div class="projet-standards">
         <div class="standard-item">
           <div class="si-icon">🏗️</div>
@@ -1143,7 +647,6 @@
     <p class="section-lead">Alpiance Immobilier est née de la rencontre de trois frontaliers partageant une conviction forte : la zone franco-genevoise offre des conditions exceptionnelles pour bâtir un patrimoine immobilier rentable et durable. Chacun apporte une expertise complémentaire qui structure l'ensemble de notre démarche.</p>
 
     <div class="equipe-grid">
-      <!-- Aymeric -->
       <div class="membre">
         <div class="membre-top">
           <div class="membre-avatar">AT</div>
@@ -1162,7 +665,6 @@
         </div>
       </div>
 
-      <!-- Nicolas -->
       <div class="membre">
         <div class="membre-top">
           <div class="membre-avatar">NV</div>
@@ -1181,7 +683,6 @@
         </div>
       </div>
 
-      <!-- Romane -->
       <div class="membre">
         <div class="membre-top">
           <div class="membre-avatar">RS</div>
@@ -1217,7 +718,7 @@
             <div class="engagement-icon">◈</div>
             <div>
               <div class="engagement-title">Rigueur et transparence</div>
-              <p class="engagement-text">Chaque décision est documentée, chaque investissement est analysé selon des critères objectifs. Nos partenaires bancaires et institutionnels peuvent compter sur une gestion structurée et des reporting clairs.</p>
+              <p class="engagement-text">Chaque décision est documentée, chaque investissement analysé selon des critères objectifs. Nos partenaires bancaires et institutionnels peuvent compter sur une gestion structurée et des reportings clairs.</p>
             </div>
           </div>
           <div class="engagement">
@@ -1238,7 +739,7 @@
             <div class="engagement-icon">◈</div>
             <div>
               <div class="engagement-title">Valorisation du tissu local</div>
-              <p class="engagement-text">En rénovant des logements vétustes, nous contribuons à améliorer l'offre locative locale, proposons des logements de qualité à des travailleurs frontaliers, et participons à la dynamisation du patrimoine bâti de la région.</p>
+              <p class="engagement-text">En rénovant des logements vétustes, nous contribuons à améliorer l'offre locative locale et participons à la dynamisation du patrimoine bâti de la région frontalière.</p>
             </div>
           </div>
         </div>
@@ -1351,7 +852,7 @@
           <label>Message</label>
           <textarea rows="5" placeholder="Décrivez votre démarche en quelques lignes..."></textarea>
         </div>
-        <button class="btn-primary" style="width: 100%; cursor: pointer; border: none;">Envoyer le message</button>
+        <button class="btn-primary" style="width:100%;cursor:pointer;border:none;">Envoyer le message</button>
       </div>
     </div>
   </div>
@@ -1377,7 +878,6 @@
 </footer>
 
 <script>
-  // Smooth nav scroll highlighting
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -1390,17 +890,12 @@
       a.style.color = '';
       if (a.getAttribute('href') === '#' + current) a.style.color = '#d4af5a';
     });
-
-    // Nav transparency
     const nav = document.querySelector('nav');
-    if (window.scrollY > 80) {
-      nav.style.background = 'rgba(247,244,239,0.98)';
-    } else {
-      nav.style.background = 'rgba(247,244,239,0.92)';
-    }
+    nav.style.background = window.scrollY > 80
+      ? 'rgba(13,31,60,0.97)'
+      : 'rgba(13,31,60,0.88)';
   });
 
-  // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1410,7 +905,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.pilier, .membre, .engagement, .axe-item, .projet-fondateur, .vision-quote').forEach(el => {
+  document.querySelectorAll('.pilier, .membre, .engagement, .axe-item, .projet-fondateur, .vision-quote, .dual-col').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
