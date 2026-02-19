@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpiance Immobilier — Investissement Patrimonial Frontalier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-light: #1a3260;
+    --blue-mid: #2e5090;
+    --blue-steel: #6b8fb5;
+    --gold: #b8952a;
+    --gold-light: #c9a23d;
+    --gold-pale: #d4af5a;
+    --cream: #f7f4ef;
+    --cream-dark: #ede9e1;
+    --cream-border: #e0dbd1;
+    --text-dark: #0d1f3c;
+    --text-mid: #2e4060;
+    --text-light: #6b7a8d;
+    --white-pure: #ffffff;
+    --border: rgba(184,149,42,0.3);
+    --border-light: rgba(13,31,60,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ───── NOISE TEXTURE OVERLAY ───── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+  }
+
+  /* ───── NAV ───── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cream-border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 48px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy) !important;
+    border: 1px solid rgba(13,31,60,0.3);
+    padding: 0.6rem 1.4rem;
+    transition: all 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--navy) !important; color: var(--cream) !important; border-color: var(--navy) !important; }
+
+  /* ───── HERO ───── */
+  #accueil {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/mnt/user-data/uploads/Untitled_Project__5_.png');
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    animation: heroScale 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroScale {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.12); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,31,60,0.25) 0%,
+      rgba(13,31,60,0.05) 35%,
+      rgba(247,244,239,0.75) 75%,
+      var(--cream) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4rem 7rem;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white-pure);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-pale);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(13,31,60,0.7);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ───── BUTTONS ───── */
+  .btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border: 1px solid rgba(245,243,238,0.4);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ───── SECTIONS ───── */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--white-pure);
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-pale); }
+
+  .section-lead {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.65);
+    max-width: 580px;
+    line-height: 1.9;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 2rem 0;
+  }
+
+  /* ───── CHIFFRES CLÉS ───── */
+  #chiffres {
+    padding: 4rem;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chiffres-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .chiffre-item {
+    padding: 2rem 3rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .chiffre-item:last-child { border-right: none; }
+
+  .chiffre-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .chiffre-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* ───── STRATÉGIE ───── */
+  #strategie {
+    background: var(--navy);
+  }
+
+  .strategie-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .strategie-right {
+    padding-top: 3rem;
+  }
+
+  .pilier {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+
+  .pilier:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .pilier-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 40px;
+  }
+
+  .pilier-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .pilier-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.6);
+    line-height: 1.8;
+  }
+
+  /* ───── ZONE GÉOGRAPHIQUE ───── */
+  .zone-card {
+    background: linear-gradient(135deg, rgba(46,80,144,0.3), rgba(13,31,60,0.5));
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  .zone-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .zone-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .zone-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid rgba(184,149,42,0.35);
+    padding: 0.4rem 1rem;
+    background: rgba(184,149,42,0.08);
+  }
+
+  /* ───── PROJETS ───── */
+  #projets {
+    background: linear-gradient(180deg, var(--navy) 0%, rgba(26,50,96,0.3) 100%);
+  }
+
+  .projet-fondateur {
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(26,50,96,0.6) 0%, rgba(13,31,60,0.8) 100%);
+    padding: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 4rem;
+  }
+
+  .projet-fondateur::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+  }
+
+  .projet-badge {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .projet-fondateur h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white-pure);
+    margin-bottom: 1rem;
+  }
+
+  .projet-meta {
+    display: flex;
+    gap: 3rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .meta-item .meta-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+  }
+
+  .meta-item .meta-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  .projet-desc {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.65);
+    line-height: 1.9;
+    max-width: 720px;
+  }
+
+  .projet-standards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 2.5rem;
+  }
+
+  .standard-item {
+    background: rgba(13,31,60,0.95);
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+  }
+
+  .standard-item .si-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .standard-item .si-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .futurs-projets {
+    margin-top: 4rem;
+    padding: 2.5rem 3rem;
+    border: 1px dashed rgba(184,149,42,0.2);
+    text-align: center;
+  }
+
+  .futurs-projets h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+  }
+
+  .futurs-projets p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.5);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ───── ÉQUIPE ───── */
+  #equipe {
+    background: var(--navy);
+  }
+
+  .equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .membre {
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .membre:hover { border-color: var(--border); }
+
+  .membre-top {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .membre-avatar {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--navy-light), var(--blue-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .membre-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--white-pure);
+    line-height: 1.2;
+  }
+
+  .membre-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.2rem;
+  }
+
+  .membre-pole {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-steel);
+    margin-bottom: 1rem;
+  }
+
+  .membre-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.55);
+    line-height: 1.9;
+  }
+
+  .membre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .membre-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(184,149,42,0.25);
+    padding: 0.2rem 0.6rem;
+  }
+
+  /* ───── VISION ───── */
+  #vision {
+    background: linear-gradient(135deg, rgba(26,50,96,0.4) 0%, var(--navy) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #vision::before {
+    content: '"';
+    position: absolute;
+    top: -2rem;
+    right: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30rem;
+    color: rgba(184,149,42,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .vision-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .engagement-list {
+    margin-top: 3rem;
+  }
+
+  .engagement {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: flex-start;
+  }
+
+  .engagement:last-child { border-bottom: none; }
+
+  .engagement-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .engagement-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .engagement-text {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.5);
+    line-height: 1.8;
+  }
+
+  .vision-quote {
+    padding: 3rem;
+    border: 1px solid var(--border);
+    background: rgba(184,149,42,0.05);
+    position: sticky;
+    top: 120px;
+  }
+
+  .vision-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white-pure);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .vision-quote cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .axes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+  }
+
+  .axe-item {
+    background: rgba(13,31,60,0.95);
+    padding: 1.8rem;
+  }
+
+  .axe-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .axe-text {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(245,243,238,0.5);
+    line-height: 1.8;
+  }
+
+  /* ───── CONTACT ───── */
+  #contact {
+    background: var(--navy-light);
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    margin-top: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+
+  .ci-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+    min-width: 100px;
+  }
+
+  .ci-val {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  /* ───── FORM ───── */
+  .contact-form {
+    background: rgba(13,31,60,0.6);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white-pure);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select option { background: var(--navy); }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: rgba(5,12,25,0.95);
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo img {
+    height: 40px;
+    filter: brightness(0.8);
+  }
+
+  .footer-info {
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(138,154,181,0.5);
+    line-height: 1.9;
+  }
+
+  .footer-legal {
+    text-align: right;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: rgba(138,154,181,0.35);
+    line-height: 1.9;
+  }
+
+  /* ───── SCROLLBAR ───── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    #chiffres { padding: 3rem 1.5rem; }
+    .chiffres-grid { grid-template-columns: 2fr 2fr; }
+    .chiffre-item:nth-child(2) { border-right: none; }
+    .strategie-layout, .vision-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .equipe-grid { grid-template-columns: 1fr; }
+    .projet-standards { grid-template-columns: 1fr; }
+    .hero-content { padding: 0 1.5rem 5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-legal { text-align: center; }
+    .axes-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#accueil" class="nav-logo">
+    <img src="/mnt/user-data/uploads/Logo_Alpiance_Immobilier_FINAL.png" alt="Alpiance Immobilier">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#strategie">Stratégie</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Investissement Patrimonial Frontalier — Haute-Savoie</div>
+    <h1 class="hero-title">Bâtir un patrimoine<br><em>à la frontière</em><br>de la performance.</h1>
+    <p class="hero-sub">Alpiance Immobilier acquiert, rénove et exploite des biens immobiliers dans le bassin frontalier franco-suisse. Une stratégie rigoureuse, une vision long terme, un rendement maîtrisé.</p>
+    <div class="hero-actions">
+      <a href="#strategie" class="btn-primary">Notre Stratégie</a>
+      <a href="#projets" class="btn-outline">Nos Projets</a>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
+<div id="chiffres">
+  <div class="chiffres-grid">
+    <div class="chiffre-item">
+      <div class="chiffre-num">2025</div>
+      <div class="chiffre-label">Année de création</div>
+    </div>
+    <div class="chiffre-item">
+      <div class="chiffre-num">3</div>
+      <div class="chiffre-label">Associés fondateurs</div>
+    </div>
+    <div class="chiffre-item">
+      <div class="chiffre-num">99</div>
+      <div class="chiffre-label">Ans de durée sociale</div>
+    </div>
+    <div class="chiffre-item">
+      <div class="chiffre-num">IS</div>
+      <div class="chiffre-label">Optimisation fiscale — SCI à l'IS</div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATÉGIE -->
+<section id="strategie">
+  <div class="section-inner">
+    <div class="strategie-layout">
+      <div>
+        <div class="section-eyebrow">Notre approche</div>
+        <h2 class="section-title">Une stratégie<br><em>précise et reproductible</em></h2>
+        <div class="divider"></div>
+        <p class="section-lead">Alpiance Immobilier ne spécule pas. Nous construisons un patrimoine immobilier solide en zone frontalière franco-suisse, en appliquant une méthode rigoureuse à chaque acquisition : achat sous la valeur marché, rénovation à forte valeur ajoutée, et location meublée longue durée.</p>
+
+        <div class="zone-card">
+          <div class="zone-title">Zones géographiques ciblées</div>
+          <div class="zone-tags">
+            <span class="zone-tag">Haute-Savoie</span>
+            <span class="zone-tag">Pays de Gex</span>
+            <span class="zone-tag">Bassin genevois</span>
+            <span class="zone-tag">Annemasse</span>
+            <span class="zone-tag">Thonon-les-Bains</span>
+            <span class="zone-tag">Reignier-Ésery</span>
+            <span class="zone-tag">Saint-Julien-en-Genevois</span>
+          </div>
+        </div>
+
+        <br>
+        <p class="section-lead" style="margin-top: 0;">Notre terrain de jeu : le corridor frontalier entre la France et Genève. Une zone à forte densité de travailleurs frontaliers, une demande locative structurellement soutenue, et des prix encore accessibles pour des rendements attractifs.</p>
+      </div>
+
+      <div class="strategie-right">
+        <div class="pilier">
+          <div class="pilier-num">01</div>
+          <div>
+            <div class="pilier-title">Acquisition sous valeur marché</div>
+            <p class="pilier-text">Nous ciblons des biens présentant un décote significative par rapport au marché local — logements nécessitant une rénovation, successions, ventes rapides — afin de sécuriser une marge dès l'achat.</p>
+          </div>
+        </div>
+        <div class="pilier">
+          <div class="pilier-num">02</div>
+          <div>
+            <div class="pilier-title">Rénovation à forte valeur ajoutée</div>
+            <p class="pilier-text">Chaque bien est intégralement rénové selon un cahier des charges précis : isolation, électricité, plomberie, cloisonnement. L'objectif est d'atteindre un standard locatif premium qui justifie un loyer supérieur au marché.</p>
+          </div>
+        </div>
+        <div class="pilier">
+          <div class="pilier-num">03</div>
+          <div>
+            <div class="pilier-title">Ameublement et optimisation des espaces</div>
+            <p class="pilier-text">L'aménagement intérieur est pensé pour optimiser chaque mètre carré, maximiser le confort et créer une expérience locataire différenciante, propice à des locations stables et durables.</p>
+          </div>
+        </div>
+        <div class="pilier">
+          <div class="pilier-num">04</div>
+          <div>
+            <div class="pilier-title">Location meublée longue durée</div>
+            <p class="pilier-text">Notre modèle repose sur la location meublée longue durée, ciblant en priorité les travailleurs frontaliers. Profils stables, solvabilité élevée, rotation faible : un profil locataire idéal pour la performance patrimoniale.</p>
+          </div>
+        </div>
+        <div class="pilier">
+          <div class="pilier-num">05</div>
+          <div>
+            <div class="pilier-title">Optimisation fiscale via SCI à l'IS</div>
+            <p class="pilier-text">La structure SCI à l'Impôt sur les Sociétés nous permet d'amortir les biens, de déduire les charges, et d'optimiser la fiscalité sur les bénéfices — en cohérence avec une stratégie de capitalisation long terme.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="section-inner">
+    <div class="section-eyebrow">Patrimoine en construction</div>
+    <h2 class="section-title">Nos <em>projets</em></h2>
+    <div class="divider"></div>
+    <p class="section-lead">Chaque bien acquis par Alpiance Immobilier devient un actif pérenne, rénové selon nos standards et géré avec rigueur. Notre premier projet incarne la méthode que nous appliquons à chaque nouvelle acquisition.</p>
+
+    <div class="projet-fondateur">
+      <div class="projet-badge">Projet Fondateur — 2025</div>
+      <h3>T2 — Nangy, Haute-Savoie</h3>
+
+      <div class="projet-meta">
+        <div class="meta-item">
+          <div class="meta-label">Type</div>
+          <div class="meta-val">T2 — Appartement</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Localisation</div>
+          <div class="meta-val">Nangy (74380)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Statut</div>
+          <div class="meta-val">Loué — Longue durée</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Cible locative</div>
+          <div class="meta-val">Frontalier Genève</div>
+        </div>
+      </div>
+
+      <p class="projet-desc">Ce T2 situé à Nangy constitue le premier actif du portefeuille Alpiance Immobilier. Acquis sous la valeur marché, intégralement rénové et meublé selon nos standards premium, il est aujourd'hui mis en location longue durée. Ce bien incarne notre modèle opérationnel dans sa globalité : identification d'une opportunité ciblée, pilotage des travaux en direct, aménagement optimisé, et mise en location auprès d'un profil frontalier stable. Il sert désormais de référence et de standard qualité pour tous nos projets à venir.</p>
+
+      <div class="projet-standards">
+        <div class="standard-item">
+          <div class="si-icon">🏗️</div>
+          <div class="si-label">Rénovation complète</div>
+        </div>
+        <div class="standard-item">
+          <div class="si-icon">🛋️</div>
+          <div class="si-label">Ameublement premium</div>
+        </div>
+        <div class="standard-item">
+          <div class="si-icon">📋</div>
+          <div class="si-label">Gestion locative active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="futurs-projets">
+      <h4>Pipeline de projets en cours d'identification</h4>
+      <p>Notre équipe analyse en permanence de nouvelles opportunités dans le corridor frontalier. Chaque acquisition potentielle est évaluée selon des critères stricts de rendement, de localisation et de potentiel de revalorisation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE -->
+<section id="equipe">
+  <div class="section-inner">
+    <div class="section-eyebrow">Les fondateurs</div>
+    <h2 class="section-title"><em>Trois associés,</em><br>une vision commune</h2>
+    <div class="divider"></div>
+    <p class="section-lead">Alpiance Immobilier est née de la rencontre de trois frontaliers partageant une conviction forte : la zone franco-genevoise offre des conditions exceptionnelles pour bâtir un patrimoine immobilier rentable et durable. Chacun apporte une expertise complémentaire qui structure l'ensemble de notre démarche.</p>
+
+    <div class="equipe-grid">
+      <!-- Aymeric -->
+      <div class="membre">
+        <div class="membre-top">
+          <div class="membre-avatar">AT</div>
+          <div>
+            <div class="membre-name">Aymeric Trebus</div>
+            <div class="membre-role">Gérant</div>
+          </div>
+        </div>
+        <div class="membre-pole">Finance · Stratégie · Direction</div>
+        <p class="membre-desc">Aymeric pilote la vision stratégique et la gouvernance financière de la société. Rigoureux et analytique, il supervise les relations bancaires, la comptabilité, la fiscalité et les arbitrages d'investissement. Frontalier travaillant à Genève, il a développé une connaissance approfondie du marché locatif local et des profils de locataires cibles.</p>
+        <div class="membre-tags">
+          <span class="membre-tag">Vision stratégique</span>
+          <span class="membre-tag">Finance</span>
+          <span class="membre-tag">Comptabilité</span>
+          <span class="membre-tag">Banques</span>
+        </div>
+      </div>
+
+      <!-- Nicolas -->
+      <div class="membre">
+        <div class="membre-top">
+          <div class="membre-avatar">NV</div>
+          <div>
+            <div class="membre-name">Nicolas Veltz</div>
+            <div class="membre-role">Associé</div>
+          </div>
+        </div>
+        <div class="membre-pole">Opérationnel · Travaux · Terrain</div>
+        <p class="membre-desc">Nicolas est l'homme de terrain. Il coordonne les visites de biens, suit l'intégralité des chantiers de rénovation, et s'assure que chaque projet respecte les délais et le budget définis. Son sens du détail technique et sa capacité à gérer les prestataires garantissent la qualité d'exécution à chaque étape.</p>
+        <div class="membre-tags">
+          <span class="membre-tag">Visites</span>
+          <span class="membre-tag">Suivi travaux</span>
+          <span class="membre-tag">Coordination</span>
+          <span class="membre-tag">Technique</span>
+        </div>
+      </div>
+
+      <!-- Romane -->
+      <div class="membre">
+        <div class="membre-top">
+          <div class="membre-avatar">RS</div>
+          <div>
+            <div class="membre-name">Romane Strohl</div>
+            <div class="membre-role">Associée</div>
+          </div>
+        </div>
+        <div class="membre-pole">Design · Expérience locataire · Gestion</div>
+        <p class="membre-desc">Romane apporte l'expertise d'aménagement et la sensibilité humaine qui font la différence. Elle pilote le choix du mobilier, l'optimisation des espaces et l'expérience locataire dans son ensemble. Elle assure également le suivi de la gestion locative au quotidien, garantissant des relations harmonieuses et durables avec nos locataires.</p>
+        <div class="membre-tags">
+          <span class="membre-tag">Aménagement</span>
+          <span class="membre-tag">Expérience locataire</span>
+          <span class="membre-tag">Gestion locative</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="section-inner">
+    <div class="vision-layout">
+      <div>
+        <div class="section-eyebrow">Engagements & Vision</div>
+        <h2 class="section-title">Une ambition<br><em>patrimoniale</em><br>long terme</h2>
+        <div class="divider"></div>
+        <p class="section-lead">Alpiance Immobilier n'est pas un projet d'opportunité. C'est une structure patrimoniale construite pour durer. Nos décisions d'investissement sont guidées par des principes clairs, une discipline de gestion sans compromis, et une vision de long terme partagée par les trois associés.</p>
+
+        <div class="engagement-list">
+          <div class="engagement">
+            <div class="engagement-icon">◈</div>
+            <div>
+              <div class="engagement-title">Rigueur et transparence</div>
+              <p class="engagement-text">Chaque décision est documentée, chaque investissement est analysé selon des critères objectifs. Nos partenaires bancaires et institutionnels peuvent compter sur une gestion structurée et des reporting clairs.</p>
+            </div>
+          </div>
+          <div class="engagement">
+            <div class="engagement-icon">◈</div>
+            <div>
+              <div class="engagement-title">Rendement maîtrisé, risque contrôlé</div>
+              <p class="engagement-text">Notre stratégie de marge à l'achat, couplée à la rénovation et à la location meublée, permet de viser des rendements bruts attractifs tout en limitant l'exposition au risque locatif.</p>
+            </div>
+          </div>
+          <div class="engagement">
+            <div class="engagement-icon">◈</div>
+            <div>
+              <div class="engagement-title">Construction d'un portefeuille répliquable</div>
+              <p class="engagement-text">Notre premier projet à Nangy a servi à valider et affiner notre méthode. L'objectif est de la répliquer sur de nouveaux actifs, en constituant un portefeuille diversifié sur la zone frontalière.</p>
+            </div>
+          </div>
+          <div class="engagement">
+            <div class="engagement-icon">◈</div>
+            <div>
+              <div class="engagement-title">Valorisation du tissu local</div>
+              <p class="engagement-text">En rénovant des logements vétustes, nous contribuons à améliorer l'offre locative locale, proposons des logements de qualité à des travailleurs frontaliers, et participons à la dynamisation du patrimoine bâti de la région.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="vision-quote">
+          <blockquote>« L'immobilier frontalier franco-suisse n'est pas une mode. C'est une conviction structurelle ancrée dans la réalité économique de la région. »</blockquote>
+          <cite>— Les associés fondateurs d'Alpiance Immobilier</cite>
+        </div>
+
+        <div class="axes-grid" style="margin-top: 2rem;">
+          <div class="axe-item">
+            <div class="axe-title">Horizon d'investissement</div>
+            <p class="axe-text">99 ans de durée sociale. Nous pensons patrimoine, pas placement court terme.</p>
+          </div>
+          <div class="axe-item">
+            <div class="axe-title">Structure fiscale</div>
+            <p class="axe-text">SCI à l'IS : amortissement des actifs, optimisation des charges et des bénéfices.</p>
+          </div>
+          <div class="axe-item">
+            <div class="axe-title">Profil locataire cible</div>
+            <p class="axe-text">Travailleurs frontaliers à Genève — solvabilité élevée, demande structurelle forte.</p>
+          </div>
+          <div class="axe-item">
+            <div class="axe-title">Ambition de portefeuille</div>
+            <p class="axe-text">Croissance progressive, acquisition par acquisition, avec discipline et méthode.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div>
+        <div class="section-eyebrow">Nous contacter</div>
+        <h2 class="section-title">Engageons la<br><em>conversation</em></h2>
+        <div class="divider"></div>
+        <p class="section-lead">Partenaires bancaires, prestataires spécialisés ou investisseurs partageant notre vision : nous sommes disponibles pour échanges sérieux et constructifs.</p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div>
+              <div class="ci-label">Dénomination</div>
+              <div class="ci-val">Alpiance Immobilier — SCI</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div>
+              <div class="ci-label">Forme juridique</div>
+              <div class="ci-val">Société Civile Immobilière à l'Impôt sur les Sociétés</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div>
+              <div class="ci-label">Capital social</div>
+              <div class="ci-val">3 000 €</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div>
+              <div class="ci-label">Siège social</div>
+              <div class="ci-val">888 Route de la Caille<br>74350 Allonzier-la-Caille</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div>
+              <div class="ci-label">Gérant</div>
+              <div class="ci-val">Aymeric Trebus</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">Prise de contact</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" placeholder="Votre prénom">
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" placeholder="Votre nom">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Société / Organisation</label>
+          <input type="text" placeholder="Votre structure">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label>Objet de votre message</label>
+          <select>
+            <option value="" disabled selected>Sélectionnez un objet</option>
+            <option>Partenariat bancaire</option>
+            <option>Proposition de bien immobilier</option>
+            <option>Prestation de services</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Décrivez votre démarche en quelques lignes..."></textarea>
+        </div>
+        <button class="btn-primary" style="width: 100%; cursor: pointer; border: none;">Envoyer le message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/mnt/user-data/uploads/Logo_Alpiance_Immobilier_FINAL.png" alt="Alpiance Immobilier">
+    </div>
+    <div class="footer-info">
+      Alpiance Immobilier — SCI à l'Impôt sur les Sociétés<br>
+      888 Route de la Caille — 74350 Allonzier-la-Caille<br>
+      Fondée en 2025 — Durée 99 ans
+    </div>
+    <div class="footer-legal">
+      Capital social : 3 000 €<br>
+      Investissement locatif frontalier<br>
+      Haute-Savoie · Pays de Gex · Genève
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth nav scroll highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + current) a.style.color = '#d4af5a';
+    });
+
+    // Nav transparency
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(13,31,60,0.97)';
+    } else {
+      nav.style.background = 'rgba(13,31,60,0.85)';
+    }
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pilier, .membre, .engagement, .axe-item, .projet-fondateur, .vision-quote').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
