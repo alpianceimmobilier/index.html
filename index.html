@@ -175,7 +175,7 @@
     font-size: clamp(3rem, 6vw, 6rem);
     font-weight: 300;
     line-height: 1.05;
-    color: var(--white-pure);
+    color: var(--navy);
     margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.5s forwards;
@@ -183,7 +183,7 @@
 
   .hero-title em {
     font-style: italic;
-    color: var(--gold-pale);
+    color: var(--gold);
   }
 
   .hero-sub {
@@ -229,8 +229,8 @@
   .btn-outline {
     display: inline-block;
     padding: 0.9rem 2.2rem;
-    border: 1px solid rgba(245,243,238,0.4);
-    color: var(--white);
+    border: 1px solid rgba(13,31,60,0.35);
+    color: var(--navy);
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.15em;
@@ -277,15 +277,15 @@
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--white-pure);
+    color: var(--navy);
   }
 
-  .section-title em { font-style: italic; color: var(--gold-pale); }
+  .section-title em { font-style: italic; color: var(--gold); }
 
   .section-lead {
     font-size: 1rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.65);
+    color: var(--text-light);
     max-width: 580px;
     line-height: 1.9;
   }
@@ -300,9 +300,9 @@
   /* ───── CHIFFRES CLÉS ───── */
   #chiffres {
     padding: 4rem;
-    background: linear-gradient(135deg, var(--navy-light), var(--navy));
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: var(--navy);
+    border-top: 1px solid rgba(13,31,60,0.15);
+    border-bottom: none;
   }
 
   .chiffres-grid {
@@ -315,7 +315,7 @@
 
   .chiffre-item {
     padding: 2rem 3rem;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid rgba(255,255,255,0.1);
     text-align: center;
   }
 
@@ -325,7 +325,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
     font-weight: 300;
-    color: var(--gold-light);
+    color: var(--gold-pale);
     line-height: 1;
     margin-bottom: 0.5rem;
   }
@@ -335,12 +335,12 @@
     font-size: 0.72rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: rgba(255,255,255,0.45);
   }
 
   /* ───── STRATÉGIE ───── */
   #strategie {
-    background: var(--navy);
+    background: var(--cream);
   }
 
   .strategie-layout {
@@ -359,7 +359,7 @@
     gap: 1.5rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--cream-border);
     align-items: flex-start;
   }
 
@@ -379,21 +379,21 @@
     font-size: 0.8rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold-light);
+    color: var(--navy);
     margin-bottom: 0.4rem;
   }
 
   .pilier-text {
     font-size: 0.9rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.6);
+    color: var(--text-light);
     line-height: 1.8;
   }
 
   /* ───── ZONE GÉOGRAPHIQUE ───── */
   .zone-card {
-    background: linear-gradient(135deg, rgba(46,80,144,0.3), rgba(13,31,60,0.5));
-    border: 1px solid var(--border);
+    background: var(--navy);
+    border: none;
     padding: 2.5rem;
     margin-top: 3rem;
   }
@@ -403,7 +403,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-pale);
     margin-bottom: 1.5rem;
   }
 
@@ -418,24 +418,25 @@
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--white);
-    border: 1px solid rgba(184,149,42,0.35);
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
     padding: 0.4rem 1rem;
-    background: rgba(184,149,42,0.08);
+    background: rgba(255,255,255,0.05);
   }
 
   /* ───── PROJETS ───── */
   #projets {
-    background: linear-gradient(180deg, var(--navy) 0%, rgba(26,50,96,0.3) 100%);
+    background: var(--cream-dark);
   }
 
   .projet-fondateur {
-    border: 1px solid var(--border);
-    background: linear-gradient(135deg, rgba(26,50,96,0.6) 0%, rgba(13,31,60,0.8) 100%);
+    border: 1px solid var(--cream-border);
+    background: var(--white-pure);
     padding: 3.5rem;
     position: relative;
     overflow: hidden;
     margin-top: 4rem;
+    box-shadow: 0 4px 40px rgba(13,31,60,0.06);
   }
 
   .projet-fondateur::before {
@@ -444,7 +445,7 @@
     top: 0; left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+    background: linear-gradient(to bottom, var(--gold), var(--gold-pale));
   }
 
   .projet-badge {
@@ -453,8 +454,8 @@
     font-size: 0.68rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gold);
+    color: var(--white-pure);
+    background: var(--navy);
     padding: 0.3rem 0.8rem;
     margin-bottom: 1.5rem;
   }
@@ -463,7 +464,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
     font-weight: 400;
-    color: var(--white-pure);
+    color: var(--navy);
     margin-bottom: 1rem;
   }
 
@@ -478,21 +479,21 @@
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: var(--text-light);
     margin-bottom: 0.3rem;
   }
 
   .meta-item .meta-val {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.9rem;
-    color: var(--gold-light);
+    color: var(--gold);
     font-weight: 500;
   }
 
   .projet-desc {
     font-size: 0.92rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.65);
+    color: var(--text-light);
     line-height: 1.9;
     max-width: 720px;
   }
@@ -501,12 +502,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
-    background: var(--border);
+    background: var(--cream-border);
     margin-top: 2.5rem;
   }
 
   .standard-item {
-    background: rgba(13,31,60,0.95);
+    background: var(--cream);
     padding: 1.2rem 1.5rem;
     text-align: center;
   }
@@ -521,28 +522,29 @@
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: var(--text-light);
   }
 
   .futurs-projets {
     margin-top: 4rem;
     padding: 2.5rem 3rem;
-    border: 1px dashed rgba(184,149,42,0.2);
+    border: 1px dashed var(--cream-border);
     text-align: center;
+    background: var(--white-pure);
   }
 
   .futurs-projets h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
     font-weight: 300;
-    color: var(--white);
+    color: var(--navy);
     margin-bottom: 0.6rem;
   }
 
   .futurs-projets p {
     font-size: 0.88rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.5);
+    color: var(--text-light);
     max-width: 480px;
     margin: 0 auto;
     line-height: 1.8;
@@ -550,7 +552,7 @@
 
   /* ───── ÉQUIPE ───── */
   #equipe {
-    background: var(--navy);
+    background: var(--cream);
   }
 
   .equipe-grid {
@@ -561,13 +563,15 @@
   }
 
   .membre {
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--cream-border);
     padding: 2.5rem 2rem;
     position: relative;
-    transition: border-color 0.3s;
+    background: var(--white-pure);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 20px rgba(13,31,60,0.04);
   }
 
-  .membre:hover { border-color: var(--border); }
+  .membre:hover { border-color: var(--gold); box-shadow: 0 4px 30px rgba(13,31,60,0.08); }
 
   .membre-top {
     display: flex;
@@ -580,13 +584,13 @@
     width: 56px;
     height: 56px;
     border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--navy-light), var(--blue-mid));
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
-    color: var(--gold-light);
+    color: var(--gold-pale);
     font-weight: 400;
   }
 
@@ -594,7 +598,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-weight: 500;
-    color: var(--white-pure);
+    color: var(--navy);
     line-height: 1.2;
   }
 
@@ -612,14 +616,14 @@
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--blue-steel);
+    color: var(--text-light);
     margin-bottom: 1rem;
   }
 
   .membre-desc {
     font-size: 0.88rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.55);
+    color: var(--text-light);
     line-height: 1.9;
   }
 
@@ -635,17 +639,25 @@
     font-size: 0.65rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(184,149,42,0.25);
+    color: var(--navy);
+    border: 1px solid var(--cream-border);
     padding: 0.2rem 0.6rem;
+    background: var(--cream);
   }
 
   /* ───── VISION ───── */
   #vision {
-    background: linear-gradient(135deg, rgba(26,50,96,0.4) 0%, var(--navy) 100%);
+    background: var(--navy);
     position: relative;
     overflow: hidden;
   }
+
+  #vision .section-eyebrow { color: var(--gold-pale); }
+  #vision .section-eyebrow::after { background: var(--gold-pale); }
+  #vision .section-title { color: #fff; }
+  #vision .section-title em { color: var(--gold-pale); }
+  #vision .section-lead { color: rgba(255,255,255,0.55); }
+  #vision .divider { background: var(--gold-pale); }
 
   #vision::before {
     content: '"';
@@ -654,7 +666,7 @@
     right: 3rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 30rem;
-    color: rgba(184,149,42,0.04);
+    color: rgba(255,255,255,0.03);
     line-height: 1;
     pointer-events: none;
   }
@@ -674,7 +686,7 @@
     display: flex;
     gap: 1.5rem;
     padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
     align-items: flex-start;
   }
 
@@ -683,11 +695,11 @@
   .engagement-icon {
     width: 32px;
     height: 32px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(184,149,42,0.4);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold);
+    color: var(--gold-pale);
     font-size: 0.9rem;
     flex-shrink: 0;
     margin-top: 2px;
@@ -698,20 +710,20 @@
     font-size: 0.78rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--white);
+    color: rgba(255,255,255,0.9);
     margin-bottom: 0.3rem;
   }
 
   .engagement-text {
     font-size: 0.85rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.5);
+    color: rgba(255,255,255,0.45);
     line-height: 1.8;
   }
 
   .vision-quote {
     padding: 3rem;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(184,149,42,0.25);
     background: rgba(184,149,42,0.05);
     position: sticky;
     top: 120px;
@@ -722,7 +734,7 @@
     font-size: 1.6rem;
     font-weight: 300;
     font-style: italic;
-    color: var(--white-pure);
+    color: rgba(255,255,255,0.9);
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
@@ -732,7 +744,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-pale);
     font-style: normal;
   }
 
@@ -740,7 +752,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;
-    background: var(--border);
+    background: rgba(255,255,255,0.08);
     margin-top: 3rem;
   }
 
@@ -754,21 +766,21 @@
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold-light);
+    color: var(--gold-pale);
     margin-bottom: 0.6rem;
   }
 
   .axe-text {
     font-size: 0.85rem;
     font-weight: 300;
-    color: rgba(245,243,238,0.5);
+    color: rgba(255,255,255,0.45);
     line-height: 1.8;
   }
 
   /* ───── CONTACT ───── */
   #contact {
-    background: var(--navy-light);
-    border-top: 1px solid var(--border);
+    background: var(--cream-dark);
+    border-top: 1px solid var(--cream-border);
   }
 
   .contact-layout {
@@ -787,7 +799,7 @@
     gap: 1.2rem;
     align-items: flex-start;
     padding: 1.2rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--cream-border);
   }
 
   .contact-item:last-child { border-bottom: none; }
@@ -797,7 +809,7 @@
     font-size: 0.68rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: var(--text-light);
     margin-bottom: 0.3rem;
     min-width: 100px;
   }
@@ -805,21 +817,22 @@
   .ci-val {
     font-size: 0.9rem;
     font-weight: 300;
-    color: var(--white);
+    color: var(--text-dark);
   }
 
   /* ───── FORM ───── */
   .contact-form {
-    background: rgba(13,31,60,0.6);
-    border: 1px solid var(--border);
+    background: var(--white-pure);
+    border: 1px solid var(--cream-border);
     padding: 2.5rem;
+    box-shadow: 0 4px 40px rgba(13,31,60,0.06);
   }
 
   .form-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
     font-weight: 400;
-    color: var(--white-pure);
+    color: var(--navy);
     margin-bottom: 1.5rem;
   }
 
@@ -833,7 +846,7 @@
     font-size: 0.68rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: var(--text-light);
     margin-bottom: 0.5rem;
   }
 
@@ -841,9 +854,9 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white);
+    background: var(--cream);
+    border: 1px solid var(--cream-border);
+    color: var(--text-dark);
     font-family: 'Barlow', sans-serif;
     font-size: 0.88rem;
     font-weight: 300;
@@ -859,7 +872,7 @@
     border-color: var(--gold);
   }
 
-  .form-group select option { background: var(--navy); }
+  .form-group select option { background: var(--cream); color: var(--text-dark); }
 
   .form-row {
     display: grid;
@@ -869,8 +882,8 @@
 
   /* ───── FOOTER ───── */
   footer {
-    background: rgba(5,12,25,0.95);
-    border-top: 1px solid var(--border);
+    background: var(--navy);
+    border-top: none;
     padding: 3rem 4rem;
   }
 
@@ -884,14 +897,13 @@
 
   .footer-logo img {
     height: 40px;
-    filter: brightness(0.8);
   }
 
   .footer-info {
     text-align: center;
     font-size: 0.78rem;
     font-weight: 300;
-    color: rgba(138,154,181,0.5);
+    color: rgba(255,255,255,0.35);
     line-height: 1.9;
   }
 
@@ -899,13 +911,13 @@
     text-align: right;
     font-size: 0.72rem;
     font-weight: 300;
-    color: rgba(138,154,181,0.35);
+    color: rgba(255,255,255,0.25);
     line-height: 1.9;
   }
 
   /* ───── SCROLLBAR ───── */
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-track { background: var(--cream); }
   ::-webkit-scrollbar-thumb { background: var(--gold); }
 
   /* ───── RESPONSIVE ───── */
@@ -949,9 +961,9 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Investissement Patrimonial Frontalier — Haute-Savoie</div>
-    <h1 class="hero-title">Bâtir un patrimoine<br><em>à la frontière</em><br>de la performance.</h1>
-    <p class="hero-sub">Alpiance Immobilier acquiert, rénove et exploite des biens immobiliers dans le bassin frontalier franco-suisse. Une stratégie rigoureuse, une vision long terme, un rendement maîtrisé.</p>
+    <div class="hero-eyebrow">Investissement Patrimonial & Rentable — Zone Frontalière Franco-Suisse</div>
+    <h1 class="hero-title">Patrimoine solide.<br><em>Rendement maîtrisé.</em><br>Vision long terme.</h1>
+    <p class="hero-sub">Alpiance Immobilier acquiert, rénove et exploite des biens immobiliers dans le bassin frontalier franco-suisse. Notre stratégie allie rentabilité locative élevée et constitution d'un patrimoine durable — deux objectifs complémentaires, jamais opposés.</p>
     <div class="hero-actions">
       <a href="#strategie" class="btn-primary">Notre Stratégie</a>
       <a href="#projets" class="btn-outline">Nos Projets</a>
@@ -981,15 +993,32 @@
   </div>
 </div>
 
+<!-- POSITIONNEMENT DUAL -->
+<div style="background: var(--cream-dark); border-top: 1px solid var(--cream-border); border-bottom: 1px solid var(--cream-border); padding: 3.5rem 4rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: center;">
+    <div style="text-align: center; padding: 2rem;">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.5rem;">Rentabilité</div>
+      <div style="width: 40px; height: 2px; background: var(--gold); margin: 0.6rem auto 1rem;"></div>
+      <p style="font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--text-light); line-height: 1.8; max-width: 280px; margin: 0 auto;">Rendements locatifs bruts élevés dès l'acquisition, grâce à notre stratégie d'achat sous valeur marché et de rénovation ciblée.</p>
+    </div>
+    <div style="width: 1px; height: 120px; background: var(--cream-border);"></div>
+    <div style="text-align: center; padding: 2rem;">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.5rem;">Patrimoine</div>
+      <div style="width: 40px; height: 2px; background: var(--gold); margin: 0.6rem auto 1rem;"></div>
+      <p style="font-family: 'Barlow', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--text-light); line-height: 1.8; max-width: 280px; margin: 0 auto;">Constitution d'un portefeuille immobilier solide et valorisable sur le long terme, optimisé fiscalement via la SCI à l'IS.</p>
+    </div>
+  </div>
+</div>
+
 <!-- STRATÉGIE -->
 <section id="strategie">
   <div class="section-inner">
     <div class="strategie-layout">
       <div>
         <div class="section-eyebrow">Notre approche</div>
-        <h2 class="section-title">Une stratégie<br><em>précise et reproductible</em></h2>
+        <h2 class="section-title">Rentabilité immédiate.<br><em>Patrimoine durable.</em></h2>
         <div class="divider"></div>
-        <p class="section-lead">Alpiance Immobilier ne spécule pas. Nous construisons un patrimoine immobilier solide en zone frontalière franco-suisse, en appliquant une méthode rigoureuse à chaque acquisition : achat sous la valeur marché, rénovation à forte valeur ajoutée, et location meublée longue durée.</p>
+        <p class="section-lead">Alpiance Immobilier réconcilie deux objectifs souvent présentés comme opposés : générer un rendement locatif élevé dès aujourd'hui, tout en bâtissant un actif patrimonial solide sur le long terme. Notre méthode repose sur une sélection rigoureuse, une rénovation à forte valeur ajoutée, et une exploitation optimisée fiscalement.</p>
 
         <div class="zone-card">
           <div class="zone-title">Zones géographiques ciblées</div>
@@ -1005,7 +1034,7 @@
         </div>
 
         <br>
-        <p class="section-lead" style="margin-top: 0;">Notre terrain de jeu : le corridor frontalier entre la France et Genève. Une zone à forte densité de travailleurs frontaliers, une demande locative structurellement soutenue, et des prix encore accessibles pour des rendements attractifs.</p>
+        <p class="section-lead" style="margin-top: 0;">Notre terrain de jeu : le corridor frontalier Haute-Savoie / Genève. Une zone à demande locative structurellement soutenue par les travailleurs frontaliers — profils stables, solvables — qui nous permet de combiner rendements bruts attractifs et revalorisation patrimoniale à long terme.</p>
       </div>
 
       <div class="strategie-right">
@@ -1179,9 +1208,9 @@
     <div class="vision-layout">
       <div>
         <div class="section-eyebrow">Engagements & Vision</div>
-        <h2 class="section-title">Une ambition<br><em>patrimoniale</em><br>long terme</h2>
+        <h2 class="section-title">Rentable aujourd'hui.<br><em>Précieux demain.</em></h2>
         <div class="divider"></div>
-        <p class="section-lead">Alpiance Immobilier n'est pas un projet d'opportunité. C'est une structure patrimoniale construite pour durer. Nos décisions d'investissement sont guidées par des principes clairs, une discipline de gestion sans compromis, et une vision de long terme partagée par les trois associés.</p>
+        <p class="section-lead">Alpiance Immobilier est conçue pour générer du rendement dès les premières années, tout en capitalisant sur le long terme. Chaque décision — achat, rénovation, structure fiscale — est pensée pour servir ces deux horizons simultanément. C'est cette double exigence qui structure notre gouvernance et guide chacun de nos choix d'investissement.</p>
 
         <div class="engagement-list">
           <div class="engagement">
@@ -1217,26 +1246,26 @@
 
       <div>
         <div class="vision-quote">
-          <blockquote>« L'immobilier frontalier franco-suisse n'est pas une mode. C'est une conviction structurelle ancrée dans la réalité économique de la région. »</blockquote>
+          <blockquote>« Nous ne choisissons pas entre rendement et patrimoine. Nous refusons de choisir. Notre stratégie est conçue pour livrer les deux. »</blockquote>
           <cite>— Les associés fondateurs d'Alpiance Immobilier</cite>
         </div>
 
         <div class="axes-grid" style="margin-top: 2rem;">
           <div class="axe-item">
-            <div class="axe-title">Horizon d'investissement</div>
-            <p class="axe-text">99 ans de durée sociale. Nous pensons patrimoine, pas placement court terme.</p>
+            <div class="axe-title">Rendement brut cible</div>
+            <p class="axe-text">Achat sous valeur marché + rénovation = marge dès J+1 et loyers supérieurs au marché local.</p>
           </div>
           <div class="axe-item">
             <div class="axe-title">Structure fiscale</div>
-            <p class="axe-text">SCI à l'IS : amortissement des actifs, optimisation des charges et des bénéfices.</p>
+            <p class="axe-text">SCI à l'IS : amortissement des actifs, optimisation des charges et capitalisation des bénéfices.</p>
           </div>
           <div class="axe-item">
             <div class="axe-title">Profil locataire cible</div>
-            <p class="axe-text">Travailleurs frontaliers à Genève — solvabilité élevée, demande structurelle forte.</p>
+            <p class="axe-text">Travailleurs frontaliers à Genève — solvabilité élevée, demande structurelle forte, rotation faible.</p>
           </div>
           <div class="axe-item">
-            <div class="axe-title">Ambition de portefeuille</div>
-            <p class="axe-text">Croissance progressive, acquisition par acquisition, avec discipline et méthode.</p>
+            <div class="axe-title">Horizon patrimonial</div>
+            <p class="axe-text">99 ans de durée sociale. Chaque actif acquis est destiné à s'apprécier et à générer durablement.</p>
           </div>
         </div>
       </div>
@@ -1365,9 +1394,9 @@
     // Nav transparency
     const nav = document.querySelector('nav');
     if (window.scrollY > 80) {
-      nav.style.background = 'rgba(13,31,60,0.97)';
+      nav.style.background = 'rgba(247,244,239,0.98)';
     } else {
-      nav.style.background = 'rgba(13,31,60,0.85)';
+      nav.style.background = 'rgba(247,244,239,0.92)';
     }
   });
 
